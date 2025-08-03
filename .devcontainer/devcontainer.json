@@ -25,5 +25,8 @@
         "mhutchie.git-graph"
       ]
     }
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/node-asdf:0": {}
   }
 }
