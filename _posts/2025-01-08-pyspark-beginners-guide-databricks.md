@@ -64,8 +64,8 @@ PySpark shines when dealing with:
 ### Your First PySpark Command
 
 ```python
-# Initialize Spark session (automatically available in Databricks)
-spark = SparkSession.builder.appName("BeginnerGuide").getOrCreate()
+# In Databricks, 'spark' is automatically available - no need to create it!
+# The SparkSession is pre-configured with optimal settings for your cluster
 
 # Create your first DataFrame
 data = [("Alice", 25), ("Bob", 30), ("Charlie", 35)]
@@ -93,15 +93,22 @@ Expected Output:
 
 **SparkSession** is your entry point to PySpark functionality:
 
+**Important Note for Databricks Users**: In Databricks, the `spark` session is automatically created and configured for you. You don't need to create it manually. However, understanding the SparkSession.builder pattern is useful because:
+- You'll see it in other PySpark tutorials and documentation
+- You'll need it when running PySpark outside of Databricks (local development, other platforms)
+- It helps you understand how Spark configurations work
+
 ```python
+# This is how you would create a SparkSession outside of Databricks:
 from pyspark.sql import SparkSession
 
-# Create SparkSession
+# Create SparkSession (NOT needed in Databricks!)
 spark = SparkSession.builder \
     .appName("MyApp") \
     .config("spark.sql.adaptive.enabled", "true") \
     .getOrCreate()
 
+# In Databricks, just use the pre-configured 'spark' object directly
 # Get SparkContext from SparkSession
 sc = spark.sparkContext
 ```
