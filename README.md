@@ -1,43 +1,103 @@
-# Chirpy Starter
+# Bjarne Meyn's Blog
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+Personal blog where I share knowledge, insights, and experiments with software development and technology. Built with Jekyll using the [Chirpy theme][chirpy].
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+## Adding New Blog Posts
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+To add a new blog post to this blog:
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+1. Create a new Markdown file in the `_posts` directory with the naming convention:
+   ```
+   YYYY-MM-DD-title-with-hyphens.md
+   ```
+
+2. Add the required front matter at the top of your file:
+   ```yaml
+   ---
+   title: "Your Post Title"
+   date: YYYY-MM-DD HH:MM:SS +0000
+   categories: [Category1, Category2]
+   tags: [tag1, tag2, tag3]
+   pin: false  # set to true to pin the post
+   ---
+   ```
+
+3. Write your content using Markdown syntax below the front matter.
+
+### Example Post Structure
+
+```markdown
+---
+title: "My New Blog Post"
+date: 2025-01-15 14:30:00 +0000
+categories: [Development, Tools]
+tags: [jekyll, blogging, markdown]
+pin: false
+---
+
+## Introduction
+
+Your blog content goes here...
 ```
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+## Local Development
 
-## Usage
+### Prerequisites
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+- Ruby (3.0 or higher)
+- Bundler gem
 
-## Contributing
+### Running the Blog Locally
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+1. Install dependencies:
+   ```bash
+   bundle install
+   ```
+
+2. Start the development server:
+   ```bash
+   bash tools/run.sh
+   ```
+   
+   Or use the Jekyll command directly:
+   ```bash
+   bundle exec jekyll serve --livereload
+   ```
+
+3. Open your browser and navigate to `http://127.0.0.1:4000`
+
+The site will automatically reload when you make changes to your posts or configuration.
+
+## Testing
+
+To test the blog for broken links and HTML validation:
+
+```bash
+bash tools/test.sh
+```
+
+## Project Structure
+
+```
+.
+├── _posts/          # Blog posts (Markdown files)
+├── _tabs/           # Navigation tabs (About, Archives, Categories, Tags)
+├── _config.yml      # Site configuration
+├── assets/          # Images, stylesheets, and other assets
+├── tools/           # Build and test scripts
+├── Gemfile          # Ruby dependencies
+└── README.md        # This file
+```
+
+## Customization
+
+For advanced theme customization and configuration options, check out the [Chirpy theme documentation][chirpy].
 
 ## License
 
 This work is published under [MIT][mit] License.
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
 [chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
