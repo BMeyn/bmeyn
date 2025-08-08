@@ -8,19 +8,21 @@ pin: false
 
 ## What is Databricks Free Edition?
 
-Databricks Free Edition is a comprehensive, no-cost cloud-based platform that provides access to enterprise-grade data analytics and machine learning tools. This free offering allows students, developers, and organizations to experiment with cutting-edge technologies without any financial commitment or time limits.
+Databricks Free Edition is a no-cost version of Databricks designed for students, educators, hobbyists, and anyone interested in learning or experimenting with data and AI. It provides a serverless-only, quota-limited environment with many of the same features available on the full Databricks platform, perfect for learning, prototyping, and collaborative exploration.
 
 ## Key Benefits
 
-### Zero Cost Access
-- **No Credit Card Required**: Sign up without payment information
-- **No Hidden Costs**: Truly free with no surprise billing
-- **No Time Limits**: Your account never expires
-- **Educational Friendly**: Perfect for learning environments
+### What You Can Do
+With a Free Edition account, you can:
+
+- **Build AI applications and agents**: Prepare data, experiment with foundation models, and deploy AI systems
+- **Collaborate on data science projects**: Use shared notebooks for real-time collaboration and publish results
+- **Explore and analyze datasets**: Use SQL editor or notebooks for hands-on data experience
+- **Create interactive dashboards**: Use Genie to interact with data using natural-language prompts
+- **Design data pipelines**: Ingest, transform, and orchestrate data with Lakeflow
+- **Access Databricks Assistant**: Get in-product coding help with suggestions and code fixes
 
 ### Rich Feature Set
-Despite being free, you get access to:
-
 - **Apache Spark**: Latest runtime for big data processing
 - **SQL Analytics**: Interactive workspace for data exploration
 - **Notebooks**: Python, R, Scala, and SQL collaborative notebooks
@@ -34,18 +36,20 @@ Despite being free, you get access to:
 ### Quick Setup Process
 
 1. **Sign Up**
-   - Visit [databricks.com](https://databricks.com)
-   - Select "Community Edition" (not trial versions)
-   - Provide basic information (name, email, password)
+   - Visit the [Databricks Free Edition signup page](https://login.databricks.com/?dbx_source=docs&intent=CE_SIGN_UP)
+   - Choose your preferred signup method
+   - Databricks will immediately create a new workspace for you
 
-2. **Email Verification**
-   - Check email for verification link
-   - Click to activate account within 24 hours
-
-3. **Access Workspace**
-   - Log in at `https://community.cloud.databricks.com`
-   - Complete optional setup wizard
+2. **Access Your Workspace**
+   - Your workspace includes serverless compute and default storage
+   - Start exploring and building immediately
    - Test with: `spark.sql("SELECT 'Hello Databricks!' as message").show()`
+
+### Next Steps Tutorials
+- [Query and visualize data from a notebook](https://learn.microsoft.com/en-us/azure/databricks/getting-started/quick-start)
+- [Create your first table and grant privileges](https://learn.microsoft.com/en-us/azure/databricks/getting-started/create-table)
+- [Use Databricks Assistant to create visualizations](https://learn.microsoft.com/en-us/azure/databricks/dashboards/tutorials/create-w-db-assistant)
+- [Query LLMs and prototype AI agents with no code](https://learn.microsoft.com/en-us/azure/databricks/getting-started/gen-ai-llm-agent)
 
 ## Understanding the Limitations
 
