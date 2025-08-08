@@ -1,0 +1,245 @@
+<!doctype html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover" ><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="Revolutionizing Development with VS Code DevContainers" /><meta property="og:locale" content="en" /><meta name="description" content="What are VS Code DevContainers?" /><meta property="og:description" content="What are VS Code DevContainers?" /><link rel="canonical" href="https://bmeyn.github.io/blog/preview/pr-19/posts/vscode-devcontainers-development-environment/" /><meta property="og:url" content="https://bmeyn.github.io/blog/preview/pr-19/posts/vscode-devcontainers-development-environment/" /><meta property="og:site_name" content="Bjarne Meyn" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2025-08-03T14:30:00+00:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Revolutionizing Development with VS Code DevContainers" /><meta name="twitter:site" content="@" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-03T14:30:00+00:00","datePublished":"2025-08-03T14:30:00+00:00","description":"What are VS Code DevContainers?","headline":"Revolutionizing Development with VS Code DevContainers","mainEntityOfPage":{"@type":"WebPage","@id":"https://bmeyn.github.io/blog/preview/pr-19/posts/vscode-devcontainers-development-environment/"},"url":"https://bmeyn.github.io/blog/preview/pr-19/posts/vscode-devcontainers-development-environment/"}</script><title>Revolutionizing Development with VS Code DevContainers | Bjarne Meyn</title><link rel="apple-touch-icon" sizes="180x180" href="/blog/preview/pr-19/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/blog/preview/pr-19/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/blog/preview/pr-19/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/blog/preview/pr-19/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/blog/preview/pr-19/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Bjarne Meyn"><meta name="application-name" content="Bjarne Meyn"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/blog/preview/pr-19/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="/blog/preview/pr-19/assets/css/jekyll-theme-chirpy.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="/blog/preview/pr-19/assets/js/dist/theme.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/en.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js,npm/tocbot@4.32.2/dist/tocbot.min.js"></script> <script defer src="/blog/preview/pr-19/assets/js/dist/post.min.js"></script> <script defer src="/blog/preview/pr-19/app.min.js?baseurl=/blog/preview/pr-19&register=true" ></script><body><aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end"><header class="profile-wrapper"> <a href="/blog/preview/pr-19/" id="avatar" class="rounded-circle"><img src="/blog/preview/pr-19/assets/img/profile.jpg" width="112" height="112" alt="avatar" onerror="this.style.display='none'"></a> <a class="site-title d-block" href="/blog/preview/pr-19/">Bjarne Meyn</a><p class="site-subtitle fst-italic mb-0">Sharing knowledge, insights, and experiment with software development and technology.</p></header><nav class="flex-column flex-grow-1 w-100 ps-0"><ul class="nav"><li class="nav-item"> <a href="/blog/preview/pr-19/" class="nav-link"> <i class="fa-fw fas fa-home"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/blog/preview/pr-19/categories/" class="nav-link"> <i class="fa-fw fas fa-stream"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/blog/preview/pr-19/tags/" class="nav-link"> <i class="fa-fw fas fa-tags"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/blog/preview/pr-19/archives/" class="nav-link"> <i class="fa-fw fas fa-archive"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/blog/preview/pr-19/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle"></i> <span>ABOUT</span> </a></ul></nav><div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"> <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/bmeyn" aria-label="github" target="_blank" rel="noopener noreferrer" > <i class="fab fa-github"></i> </a> <a href="https://www.linkedin.com/in/bjarne-meyn-09b236207/" aria-label="linkedin" target="_blank" rel="noopener noreferrer" > <i class="fab fa-linkedin"></i> </a> <a href="javascript:location.href = 'mailto:' + ['bjarne','arclytics.de'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a></div></aside><div id="main-wrapper" class="d-flex justify-content-center"><div class="container d-flex flex-column px-xxl-5"><header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar"><div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100" ><nav id="breadcrumb" aria-label="Breadcrumb"> <span> <a href="/blog/preview/pr-19/">Home</a> </span> <span>Revolutionizing Development with VS Code DevContainers</span></nav><button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar"> <i class="fas fa-bars fa-fw"></i> </button><div id="topbar-title"> Post</div><button type="button" id="search-trigger" class="btn btn-link" aria-label="Search"> <i class="fas fa-search fa-fw"></i> </button> <search id="search" class="align-items-center ms-3 ms-lg-0"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..." > </search> <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">Cancel</button></div></header><div class="row flex-grow-1"><main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4"><article class="px-1" data-toc="true"><header><h1 data-toc-skip>Revolutionizing Development with VS Code DevContainers</h1><div class="post-meta text-muted"> <span> Posted <time data-ts="1754231400" data-df="ll" data-bs-toggle="tooltip" data-bs-placement="bottom" > Aug 3, 2025 </time> </span><div class="d-flex justify-content-between"> <span> By <em> <a href="https://github.com/bmeyn">Bjarne Meyn</a> </em> </span><div> <span class="readtime" data-bs-toggle="tooltip" data-bs-placement="bottom" title="725 words" > <em>4 min</em> read</span></div></div></div></header><div id="toc-bar" class="d-flex align-items-center justify-content-between invisible"> <span class="label text-truncate">Revolutionizing Development with VS Code DevContainers</span> <button type="button" class="toc-trigger btn me-1"> <i class="fa-solid fa-list-ul fa-fw"></i> </button></div><button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm"> <span class="label ps-2 pe-1">Contents</span> <i class="fa-solid fa-angle-right fa-fw"></i> </button> <dialog id="toc-popup" class="p-0"><div class="header d-flex flex-row align-items-center justify-content-between"><div class="label text-truncate py-2 ms-4">Revolutionizing Development with VS Code DevContainers</div><button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75"> <i class="fas fa-close"></i> </button></div><div id="toc-popup-content" class="px-4 py-3 pb-4"></div></dialog><div class="content"><h2 id="what-are-vs-code-devcontainers"><span class="me-2">What are VS Code DevContainers?</span><a href="#what-are-vs-code-devcontainers" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>VS Code DevContainers provide a powerful way to create consistent, reproducible development environments using Docker containers. Instead of installing dependencies directly on your machine, DevContainers package your entire development environment—including runtime, tools, extensions, and settings—into a containerized workspace.</p><h2 id="key-benefits"><span class="me-2">Key Benefits</span><a href="#key-benefits" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="consistency-across-teams"><span class="me-2">Consistency Across Teams</span><a href="#consistency-across-teams" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><strong>Environment Parity</strong>: Every team member works in identical environments<li><strong>Onboarding Speed</strong>: New developers can start coding in minutes, not hours<li><strong>Version Control</strong>: Development environments are versioned alongside code</ul><h3 id="isolation-and-security"><span class="me-2">Isolation and Security</span><a href="#isolation-and-security" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><strong>Clean Host System</strong>: Keep your local machine free from project-specific dependencies<li><strong>Multiple Projects</strong>: Switch between different tech stacks without conflicts<li><strong>Security Boundaries</strong>: Isolate potentially risky dependencies</ul><h3 id="reproducibility"><span class="me-2">Reproducibility</span><a href="#reproducibility" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><strong>Works Everywhere</strong>: Same environment on Windows, macOS, and Linux<li><strong>CI/CD Integration</strong>: Use the same environment for development and deployment<li><strong>Time Travel</strong>: Easily revert to previous environment configurations</ul><h2 id="getting-started"><span class="me-2">Getting Started</span><a href="#getting-started" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="prerequisites"><span class="me-2">Prerequisites</span><a href="#prerequisites" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-bash highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="c"># Install required tools</span>
+- VS Code
+- Docker Desktop
+- DevContainers extension
+</pre></table></code></div></div><h3 id="basic-setup"><span class="me-2">Basic Setup</span><a href="#basic-setup" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ol><li><strong>Create DevContainer Configuration</strong><div class="language-bash highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="nb">mkdir</span> .devcontainer
+<span class="nb">touch</span> .devcontainer/devcontainer.json
+</pre></table></code></div></div><li><strong>Basic Configuration Example</strong><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Node.js Development"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mcr.microsoft.com/devcontainers/javascript-node:18"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"vscode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"esbenp.prettier-vscode"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ms-vscode.vscode-typescript-next"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"editor.formatOnSave"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"forwardPorts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">8080</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"postCreateCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm install"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><li><strong>Open in Container</strong><ul><li>Use Command Palette: <code class="language-plaintext highlighter-rouge">Dev Containers: Reopen in Container</code><li>Or click the notification popup when opening the project</ul></ol><h2 id="advanced-configurations"><span class="me-2">Advanced Configurations</span><a href="#advanced-configurations" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="custom-dockerfile"><span class="me-2">Custom Dockerfile</span><a href="#custom-dockerfile" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Python Environment"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"dockerfile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dockerfile"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">".."</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"vscode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ms-python.python"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ms-python.pylint"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h3 id="docker-compose-integration"><span class="me-2">Docker Compose Integration</span><a href="#docker-compose-integration" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Full Stack Application"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dockerComposeFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docker-compose.yml"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"workspaceFolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/workspace"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"shutdownAction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stopCompose"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h3 id="features-and-lifecycle-scripts"><span class="me-2">Features and Lifecycle Scripts</span><a href="#features-and-lifecycle-scripts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enhanced Development Environment"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mcr.microsoft.com/devcontainers/base:ubuntu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ghcr.io/devcontainers/features/node:1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"ghcr.io/devcontainers/features/git:1"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"ghcr.io/devcontainers/features/github-cli:1"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"postCreateCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm install &amp;&amp; npm run setup"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"postStartCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run dev"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"postAttachCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo 'DevContainer ready!'"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h2 id="real-world-examples"><span class="me-2">Real-World Examples</span><a href="#real-world-examples" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="react-typescript-project"><span class="me-2">React TypeScript Project</span><a href="#react-typescript-project" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"React TypeScript"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mcr.microsoft.com/devcontainers/typescript-node:18"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"vscode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"bradlc.vscode-tailwindcss"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"esbenp.prettier-vscode"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ms-vscode.vscode-typescript-next"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"forwardPorts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"postCreateCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm install"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"remoteUser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h3 id="python-data-science"><span class="me-2">Python Data Science</span><a href="#python-data-science" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python Data Science"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mcr.microsoft.com/devcontainers/python:3.11"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ghcr.io/devcontainers/features/git:1"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"vscode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ms-python.python"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ms-toolsai.jupyter"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"postCreateCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pip install -r requirements.txt"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h2 id="best-practices"><span class="me-2">Best Practices</span><a href="#best-practices" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="performance-optimization"><span class="me-2">Performance Optimization</span><a href="#performance-optimization" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><strong>Volume Mounts</strong>: Use named volumes for node_modules and package caches<li><strong>Resource Limits</strong>: Configure appropriate CPU and memory limits<li><strong>Image Selection</strong>: Choose minimal base images when possible</ul><h3 id="security-considerations"><span class="me-2">Security Considerations</span><a href="#security-considerations" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><strong>Non-root User</strong>: Always specify a non-root user in production configs<li><strong>Secret Management</strong>: Use environment variables and avoid hardcoded secrets<li><strong>Image Scanning</strong>: Regularly update base images for security patches</ul><h3 id="team-collaboration"><span class="me-2">Team Collaboration</span><a href="#team-collaboration" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><strong>Documentation</strong>: Include setup instructions in README<li><strong>Version Pinning</strong>: Pin specific versions of tools and dependencies<li><strong>Testing</strong>: Test DevContainer configs across different platforms</ul><h2 id="troubleshooting-common-issues"><span class="me-2">Troubleshooting Common Issues</span><a href="#troubleshooting-common-issues" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="port-conflicts"><span class="me-2">Port Conflicts</span><a href="#port-conflicts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"forwardPorts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"portsAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"3000"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Application"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"onAutoForward"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notify"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h3 id="permission-issues"><span class="me-2">Permission Issues</span><a href="#permission-issues" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"remoteUser"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vscode"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"postCreateCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sudo chown -R vscode:vscode /workspace"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h3 id="slow-startup"><span class="me-2">Slow Startup</span><a href="#slow-startup" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-json highlighter-rouge"><div class="code-header"> <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"dockerfile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dockerfile"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"BUILDKIT_INLINE_CACHE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><h2 id="integration-with-cicd"><span class="me-2">Integration with CI/CD</span><a href="#integration-with-cicd" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>DevContainers can be used in GitHub Actions to ensure development-production parity:</p><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">CI</span>
+<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">,</span> <span class="nv">pull_request</span><span class="pi">]</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">devcontainers/ci@v0.3</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">runCmd</span><span class="pi">:</span> <span class="s">npm test</span>
+</pre></table></code></div></div><h2 id="conclusion"><span class="me-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>VS Code DevContainers transform the development experience by providing consistent, isolated, and reproducible environments. They eliminate “works on my machine” problems while enabling teams to focus on building great software rather than managing development environments.</p><p>Whether you’re working on a simple Node.js app or a complex microservices architecture, DevContainers can streamline your workflow and improve team productivity. Start with a simple configuration and gradually add features as your needs evolve.</p><h2 id="resources"><span class="me-2">Resources</span><a href="#resources" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><ul><li><a href="https://containers.dev/">Official DevContainers Documentation</a><li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">VS Code DevContainers Extension</a><li><a href="https://github.com/devcontainers/templates">DevContainer Templates</a><li><a href="https://github.com/devcontainers/features">Community Features</a></ul></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw me-1"></i> <a href="/blog/preview/pr-19/categories/development/">Development</a>, <a href="/blog/preview/pr-19/categories/tools/">Tools</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw me-1"></i> <a href="/blog/preview/pr-19/tags/vscode/" class="post-tag no-text-decoration" >vscode</a> <a href="/blog/preview/pr-19/tags/devcontainers/" class="post-tag no-text-decoration" >devcontainers</a> <a href="/blog/preview/pr-19/tags/docker/" class="post-tag no-text-decoration" >docker</a> <a href="/blog/preview/pr-19/tags/development-environment/" class="post-tag no-text-decoration" >development-environment</a></div><div class=" post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2 " ><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper d-flex align-items-center"> <span class="share-label text-muted">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Revolutionizing%20Development%20with%20VS%20Code%20DevContainers%20-%20Bjarne%20Meyn&url=https%3A%2F%2Fbmeyn.github.io%2Fblog%2Fpreview%2Fpr-19%2Fposts%2Fvscode-devcontainers-development-environment%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter"> <i class="fa-fw fa-brands fa-square-x-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Revolutionizing%20Development%20with%20VS%20Code%20DevContainers%20-%20Bjarne%20Meyn&u=https%3A%2F%2Fbmeyn.github.io%2Fblog%2Fpreview%2Fpr-19%2Fposts%2Fvscode-devcontainers-development-environment%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fbmeyn.github.io%2Fblog%2Fpreview%2Fpr-19%2Fposts%2Fvscode-devcontainers-development-environment%2F&text=Revolutionizing%20Development%20with%20VS%20Code%20DevContainers%20-%20Bjarne%20Meyn" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <button id="copy-link" aria-label="Copy link" class="btn small" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy link" data-title-succeed="Link copied successfully!" > <i class="fa-fw fas fa-link pe-none fs-6"></i> </button> </span></div></div></div></article></main><aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted"><div class="access"><section id="access-lastmod"><h2 class="panel-heading">Recently Updated</h2><ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2"><li class="text-truncate lh-lg"> <a href="/blog/preview/pr-19/posts/vscode-devcontainers-development-environment/">Revolutionizing Development with VS Code DevContainers</a><li class="text-truncate lh-lg"> <a href="/blog/preview/pr-19/posts/databricks-asset-bundles-cicd-best-practices/">Mastering Databricks Asset Bundles: Streamlining CI/CD for Data and ML Workflows</a></ul></section><section><h2 class="panel-heading">Trending Tags</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/asset-bundles/">asset-bundles</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/azure-devops/">azure-devops</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/cicd/">cicd</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/databricks/">databricks</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/devcontainers/">devcontainers</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/development-environment/">development-environment</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/devops/">devops</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/docker/">docker</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/github-actions/">github-actions</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/github-flow/">github-flow</a></div></section></div><div class="toc-border-cover z-3"></div><section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4"><h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2><nav id="toc"></nav></section></aside></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4"><nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation"> <a href="/blog/preview/pr-19/posts/databricks-asset-bundles-cicd-best-practices/" class="btn btn-outline-primary" aria-label="Older" ><p>Mastering Databricks Asset Bundles: Streamlining CI/CD for Data and ML Workflows</p></a><div class="btn btn-outline-primary disabled" aria-label="Newer"><p>-</p></div></nav><footer aria-label="Site Info" class=" d-flex flex-column justify-content-center text-muted flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3 " ><p>© <time>2025</time> <a href="https://github.com/bmeyn">Bjarne Meyn</a>. <span data-bs-toggle="tooltip" data-bs-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author." >Some rights reserved.</span></p><p>Using the <a data-bs-toggle="tooltip" data-bs-placement="top" title="v7.3.1" href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener" >Chirpy</a> theme for <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>.</p></footer></div></div><div id="search-result-wrapper" class="d-flex justify-content-center d-none"><div class="col-11 content"><div id="search-hints"><section><h2 class="panel-heading">Trending Tags</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/asset-bundles/">asset-bundles</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/azure-devops/">azure-devops</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/cicd/">cicd</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/databricks/">databricks</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/devcontainers/">devcontainers</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/development-environment/">development-environment</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/devops/">devops</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/docker/">docker</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/github-actions/">github-actions</a> <a class="post-tag btn btn-outline-primary" href="/blog/preview/pr-19/tags/github-flow/">github-flow</a></div></section></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><aside aria-label="Scroll to Top"> <button id="back-to-top" type="button" class="btn btn-lg btn-box-shadow"> <i class="fas fa-angle-up"></i> </button></aside></div><div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div><aside id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true" data-bs-autohide="false" ><div class="toast-header"> <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast" aria-label="Close" ></button></div><div class="toast-body text-center pt-0"><p class="px-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></aside><script> document.addEventListener('DOMContentLoaded', () => { SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/blog/preview/pr-19/assets/js/data/search.json', searchResultTemplate: '<article class="px-1 px-sm-2 px-lg-4 px-xl-0"><header><h2><a href="{url}">{title}</a></h2><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div></header><p>{content}</p></article>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); }); </script>
