@@ -33,7 +33,7 @@ jobs:
 
       - name: Build preview site
         run: |
-          # Build site with PR-specific base URL
+          # Build site with correct base URL for preview subdirectory
           bundle exec jekyll build --destination "_site" --baseurl "/blog/preview/pr-${{ github.event.number }}"
         env:
           JEKYLL_ENV: "production"
@@ -43,7 +43,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          destination_dir: preview/pr-${{ github.event.number }}
+          destination_dir: blog/preview/pr-${{ github.event.number }}
           keep_files: true
           publish_branch: gh-pages
 
@@ -52,7 +52,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.number;
-            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/preview/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner.toLowerCase()}.github.io/${context.repo.repo}/blog/preview/pr-${prNumber}/`;
             
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
@@ -108,10 +108,10 @@ jobs:
 
       - name: Remove preview directory
         run: |
-          if [ -d "preview/pr-${{ github.event.number }}" ]; then
+          if [ -d "blog/preview/pr-${{ github.event.number }}" ]; then
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            rm -rf "preview/pr-${{ github.event.number }}"
+            rm -rf "blog/preview/pr-${{ github.event.number }}"
             git add -A
             git commit -m "Remove preview for PR #${{ github.event.number }}" || exit 0
             git push
