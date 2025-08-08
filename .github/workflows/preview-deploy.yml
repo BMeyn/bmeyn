@@ -1,0 +1,154 @@
+name: "Deploy PR Preview"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - LICENSE
+
+permissions:
+  contents: write
+  deployments: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+          bundler-cache: true
+
+      - name: Build preview site
+        run: |
+          # Build site with PR-specific base URL
+          bundle exec jekyll build --destination "_site" --baseurl "/blog/preview/pr-${{ github.event.number }}"
+        env:
+          JEKYLL_ENV: "production"
+
+      - name: Deploy preview to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          destination_dir: preview/pr-${{ github.event.number }}
+          keep_files: true
+          publish_branch: gh-pages
+
+      - name: Comment PR with preview link
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.number;
+            const previewUrl = `https://${context.repo.owner}.github.io/${context.repo.repo}/preview/pr-${prNumber}/`;
+            
+            // Find existing preview comment
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+            
+            const existingComment = comments.data.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.includes('📖 Preview deployment')
+            );
+            
+            const commentBody = `## 📖 Preview deployment
+            
+            ✅ Preview deployment is ready!
+            
+            **📖 Preview URL:** ${previewUrl}
+            
+            🔄 This preview will be updated automatically when you push new commits to this PR.
+            
+            ---
+            <sub>Deploy preview powered by GitHub Pages</sub>`;
+            
+            if (existingComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+            }
+
+  cleanup-preview:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Remove preview directory
+        run: |
+          if [ -d "preview/pr-${{ github.event.number }}" ]; then
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            rm -rf "preview/pr-${{ github.event.number }}"
+            git add -A
+            git commit -m "Remove preview for PR #${{ github.event.number }}" || exit 0
+            git push
+          fi
+
+      - name: Update PR comment for closed PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.number;
+            
+            // Find existing preview comment
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+            
+            const existingComment = comments.data.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.includes('📖 Preview deployment')
+            );
+            
+            if (existingComment) {
+              const commentBody = `## 📖 Preview deployment
+              
+              ❌ Preview deployment has been removed.
+              
+              The preview for this PR has been cleaned up since the PR was closed.
+              
+              ---
+              <sub>Deploy preview powered by GitHub Pages</sub>`;
+              
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: commentBody
+              });
+            }
