@@ -141,6 +141,34 @@ For advanced theme customization and configuration options, check out the [Chirp
 - **Comments**: Disqus, Utterances, or Giscus integration
 - **SEO**: Meta tags, structured data, and social media previews
 
+## 🚀 Preview Deployments
+
+This repository includes automated preview deployments for pull requests, making it easy to review changes before merging:
+
+### 📖 How It Works
+
+When you open or update a pull request:
+
+1. **Automatic Build**: GitHub Actions automatically builds your changes
+2. **Preview Deployment**: The site is deployed to a unique preview URL: `https://bmeyn.github.io/blog/preview/pr-[number]/`
+3. **PR Comment**: A bot automatically comments on the PR with the preview link
+4. **Live Updates**: The preview updates automatically when you push new commits
+5. **Cleanup**: Preview is removed when the PR is closed or merged
+
+### 🎯 Benefits
+
+- **Visual Review**: See exactly how changes will look on the live site
+- **Share with Others**: Easy to share preview links for feedback
+- **No Conflicts**: Each PR gets its own isolated preview environment
+- **Zero Setup**: Works automatically for all contributors
+
+### 💡 Usage Tips
+
+- Check the preview before requesting reviews
+- Share the preview link when asking for feedback
+- Test responsive design and functionality
+- Verify that all links and images work correctly
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you find issues or have suggestions:
@@ -148,6 +176,7 @@ Contributions are welcome! If you find issues or have suggestions:
 1. **Report Issues**: [Create an issue](https://github.com/BMeyn/blog/issues/new) for bugs or enhancement requests
 2. **Suggest Content**: Propose article topics or improvements via issues
 3. **Technical Contributions**: Fork the repository, make changes, and submit a pull request
+   - 📖 **Preview Available**: Your PR will automatically get a preview deployment for easy review!
 
 Please ensure all contributions maintain the blog's focus on technical content and professional quality.
 
