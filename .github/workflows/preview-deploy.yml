@@ -52,7 +52,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.number;
-            const previewUrl = `https://${context.repo.owner.toLowerCase()}.github.io/${context.repo.repo}/blog/preview/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner.toLowerCase()}.github.io/blog/preview/pr-${prNumber}/`;
             
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
