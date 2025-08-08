@@ -43,7 +43,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          destination_dir: blog/preview/pr-${{ github.event.number }}
+          destination_dir: preview/pr-${{ github.event.number }}
           keep_files: true
           publish_branch: gh-pages
 
@@ -108,10 +108,10 @@ jobs:
 
       - name: Remove preview directory
         run: |
-          if [ -d "blog/preview/pr-${{ github.event.number }}" ]; then
+          if [ -d "preview/pr-${{ github.event.number }}" ]; then
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            rm -rf "blog/preview/pr-${{ github.event.number }}"
+            rm -rf "preview/pr-${{ github.event.number }}"
             git add -A
             git commit -m "Remove preview for PR #${{ github.event.number }}" || exit 0
             git push
