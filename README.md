@@ -1,10 +1,25 @@
 # Bjarne Meyn's Blog
 
+[![Live Site](https://img.shields.io/badge/Live%20Site-bmeyn.github.io%2Fblog-blue?style=for-the-badge&logo=github-pages)](https://bmeyn.github.io/blog)
+
+[![Jekyll](https://img.shields.io/badge/Jekyll-4.4.1-red?logo=jekyll&logoColor=white)](https://jekyllrb.com/)
+[![Chirpy Theme](https://img.shields.io/badge/Theme-Chirpy-brightgreen?logo=github)](https://github.com/cotes2020/jekyll-theme-chirpy/)
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+[![Build Status](https://github.com/BMeyn/blog/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/BMeyn/blog/actions)
 
-Personal blog where I share knowledge, insights, and experiments with software development and technology. Built with Jekyll using the [Chirpy theme][chirpy].
+**🌐 Visit the live site: [bmeyn.github.io/blog](https://bmeyn.github.io/blog)**
 
-## Adding New Blog Posts
+A personal technical blog focused on software development, technology insights, and hands-on experiments. Featuring in-depth articles about modern development practices, DevOps, data engineering, and emerging technologies. Built with Jekyll and the modern Chirpy theme for optimal performance and SEO.
+
+## ✨ Featured Content
+
+Explore articles covering:
+- **DevOps & CI/CD**: Databricks Asset Bundles, deployment automation, and best practices
+- **Development Environments**: VSCode DevContainers, containerized development workflows
+- **Software Engineering**: Modern development tools, frameworks, and methodologies
+- **Technology Insights**: Hands-on experiments with emerging technologies
+
+## 📝 Adding New Blog Posts
 
 To add a new blog post to this blog:
 
@@ -42,35 +57,43 @@ pin: false
 Your blog content goes here...
 ```
 
-## Local Development
+## 🚀 Local Development
 
 ### Prerequisites
 
-- Ruby (3.0 or higher)
-- Bundler gem
+- **Ruby** (3.0 or higher) - Programming language runtime
+- **Bundler** gem - Ruby dependency management
+- **Git** - Version control and submodule support
 
-### Running the Blog Locally
+### Quick Start
 
-1. Install dependencies:
+1. **Clone and setup** (first time only):
+   ```bash
+   git clone https://github.com/BMeyn/blog.git
+   cd blog
+   git submodule update --init --recursive
+   ```
+
+2. **Install dependencies**:
    ```bash
    bundle install
    ```
 
-2. Start the development server:
+3. **Start the development server**:
    ```bash
-   bash tools/run.sh
+   bash tools/run.sh --host 127.0.0.1
    ```
    
    Or use the Jekyll command directly:
    ```bash
-   bundle exec jekyll serve --livereload
+   bundle exec jekyll serve --livereload --host 127.0.0.1
    ```
 
-3. Open your browser and navigate to `http://127.0.0.1:4000`
+4. **View your site**: Open your browser and navigate to `http://127.0.0.1:4000/blog`
 
-The site will automatically reload when you make changes to your posts or configuration.
+The site will automatically reload when you make changes to your posts or configuration, enabling efficient content development.
 
-## Testing
+### 🧪 Testing
 
 To test the blog for broken links and HTML validation:
 
@@ -78,24 +101,57 @@ To test the blog for broken links and HTML validation:
 bash tools/test.sh
 ```
 
-## Project Structure
+This runs comprehensive checks including:
+- Internal link validation
+- HTML structure validation  
+- Asset reference verification
+- SEO meta tag validation
+
+## 📁 Project Structure
 
 ```
 .
-├── _posts/          # Blog posts (Markdown files)
-├── _tabs/           # Navigation tabs (About, Archives, Categories, Tags)
-├── _config.yml      # Site configuration
-├── assets/          # Images, stylesheets, and other assets
-├── tools/           # Build and test scripts
-├── Gemfile          # Ruby dependencies
-└── README.md        # This file
+├── _posts/          # 📄 Blog posts (Markdown files with front matter)
+├── _tabs/           # 🗂️ Navigation tabs (About, Archives, Categories, Tags)
+├── _config.yml      # ⚙️ Site configuration and settings
+├── assets/          # 🎨 Images, stylesheets, and static assets
+├── tools/           # 🔧 Build and test automation scripts
+├── Gemfile          # 💎 Ruby dependencies and versions
+└── README.md        # 📖 This documentation file
 ```
 
-## Customization
+## 🎨 Technology Stack
 
-For advanced theme customization and configuration options, check out the [Chirpy theme documentation][chirpy].
+This blog leverages modern web technologies for optimal performance and developer experience:
 
-## License
+- **[Jekyll 4.4.1](https://jekyllrb.com/)** - Static site generator with liquid templating
+- **[Chirpy Theme](https://github.com/cotes2020/jekyll-theme-chirpy/)** - Modern, responsive Jekyll theme
+- **[GitHub Pages](https://pages.github.com/)** - Automated deployment and hosting
+- **[GitHub Actions](https://github.com/features/actions)** - CI/CD pipeline for testing and deployment
+- **[HTML Proofer](https://github.com/gjtorikian/html-proofer)** - Automated testing for links and HTML validity
+- **[Sass](https://sass-lang.com/)** - CSS preprocessing for maintainable stylesheets
+
+## ⚙️ Customization
+
+For advanced theme customization and configuration options, check out the [Chirpy theme documentation][chirpy]. Key areas for customization include:
+
+- **Theme Settings**: Color schemes, typography, and layout options
+- **Social Integration**: GitHub, Twitter, LinkedIn profile links
+- **Analytics**: Google Analytics, GoatCounter, and other tracking services
+- **Comments**: Disqus, Utterances, or Giscus integration
+- **SEO**: Meta tags, structured data, and social media previews
+
+## 🤝 Contributing
+
+Contributions are welcome! If you find issues or have suggestions:
+
+1. **Report Issues**: [Create an issue](https://github.com/BMeyn/blog/issues/new) for bugs or enhancement requests
+2. **Suggest Content**: Propose article topics or improvements via issues
+3. **Technical Contributions**: Fork the repository, make changes, and submit a pull request
+
+Please ensure all contributions maintain the blog's focus on technical content and professional quality.
+
+## 📄 License
 
 This work is published under [MIT][mit] License.
 
