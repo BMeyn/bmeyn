@@ -41,17 +41,17 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      - name: Build Jekyll site with PR-specific baseurl
+      - name: Build Jekyll site for preview deployment
         run: |
           bundle exec jekyll build \
-            --baseurl "/blog/pr-preview/pr-${{ github.event.number }}" \
+            --baseurl "" \
             --destination ./_site
 
       - name: Test preview site
         run: |
           echo "Preview site built successfully with $(find _site -name "*.html" | wc -l) HTML files"
           echo "Checking asset paths in generated HTML..."
-          grep -r "href=\"/blog/pr-preview/pr-${{ github.event.number }}/assets" _site/ || echo "Warning: Asset paths may not be correctly generated"
+          head -20 _site/index.html | grep -E "(css|js|img)" || true
 
 
       - name: Upload preview artifact
