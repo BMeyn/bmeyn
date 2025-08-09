@@ -150,17 +150,18 @@ This repository includes automated preview deployments for pull requests, making
 When you open or update a pull request:
 
 1. **Automatic Build**: GitHub Actions automatically builds your changes
-2. **Preview Deployment**: The site is deployed to a unique preview URL: `https://bmeyn.github.io/blog/preview/pr-[number]/`
+2. **Preview Deployment**: The site is deployed to a unique preview environment using GitHub Pages
 3. **PR Comment**: A bot automatically comments on the PR with the preview link
 4. **Live Updates**: The preview updates automatically when you push new commits
-5. **Cleanup**: Preview is removed when the PR is closed or merged
+5. **Environment Management**: GitHub automatically manages the preview environment lifecycle
 
 ### 🎯 Benefits
 
 - **Visual Review**: See exactly how changes will look on the live site
 - **Share with Others**: Easy to share preview links for feedback
-- **No Conflicts**: Each PR gets its own isolated preview environment
+- **Isolated Environments**: Each PR gets its own preview environment managed by GitHub
 - **Zero Setup**: Works automatically for all contributors
+- **Consistent Experience**: Uses the same deployment method as the main site
 
 ### 💡 Usage Tips
 

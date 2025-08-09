@@ -9,21 +9,31 @@ on:
       - LICENSE
 
 permissions:
-  contents: write
-  deployments: write
+  contents: read
+  pages: write
+  id-token: write
   pull-requests: write
 
+# Allow one concurrent preview deployment per PR
+concurrency:
+  group: "preview-${{ github.event.number }}"
+  cancel-in-progress: true
+
 jobs:
-  deploy-preview:
+  build-preview:
     if: github.event.action != 'closed'
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: true
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -32,27 +42,39 @@ jobs:
           bundler-cache: true
 
       - name: Build preview site
-        run: |
-          # Build site with correct base URL for preview subdirectory
-          bundle exec jekyll build --destination "_site" --baseurl "/preview/pr-${{ github.event.number }}"
+        run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
-      - name: Deploy preview to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Test preview site
+        run: |
+          bundle exec htmlproofer _site \
+            --disable-external \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+
+      - name: Upload preview artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          destination_dir: preview/pr-${{ github.event.number }}
-          keep_files: true
-          publish_branch: gh-pages
+          path: "_site${{ steps.pages.outputs.base_path }}"
+
+  deploy-preview:
+    if: github.event.action != 'closed'
+    environment:
+      name: preview
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-preview
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.payload.number;
-            const previewUrl = `https://${context.repo.owner.toLowerCase()}.github.io/preview/pr-${prNumber}/`;
+            const previewUrl = '${{ steps.deployment.outputs.page_url }}';
             
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
@@ -91,64 +113,6 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: prNumber,
-                body: commentBody
-              });
-            }
-
-  cleanup-preview:
-    if: github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          fetch-depth: 0
-
-      - name: Remove preview directory
-        run: |
-          if [ -d "preview/pr-${{ github.event.number }}" ]; then
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            rm -rf "preview/pr-${{ github.event.number }}"
-            git add -A
-            git commit -m "Remove preview for PR #${{ github.event.number }}" || exit 0
-            git push
-          fi
-
-      - name: Update PR comment for closed PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const prNumber = context.payload.number;
-            
-            // Find existing preview comment
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-            });
-            
-            const existingComment = comments.data.find(comment => 
-              comment.user.login === 'github-actions[bot]' && 
-              comment.body.includes('📖 Preview deployment')
-            );
-            
-            if (existingComment) {
-              const commentBody = `## 📖 Preview deployment
-              
-              ❌ Preview deployment has been removed.
-              
-              The preview for this PR has been cleaned up since the PR was closed.
-              
-              ---
-              <sub>Deploy preview powered by GitHub Pages</sub>`;
-              
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existingComment.id,
                 body: commentBody
               });
             }
