@@ -63,7 +63,7 @@ jobs:
   deploy-preview:
     if: github.event.action != 'closed'
     environment:
-      name: pr-preview-${{ github.event.number }}
+      name: preview
       url: https://bmeyn.github.io/blog/pr-${{ github.event.number }}
     runs-on: ubuntu-latest
     needs: build-preview
