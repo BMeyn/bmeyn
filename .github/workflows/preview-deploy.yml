@@ -41,22 +41,11 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      - name: Modify config for preview
+      - name: Build Jekyll site with PR-specific baseurl
         run: |
-          # Create a copy of the config for preview with modified tagline only
-          cp _config.yml _config.preview.yml
-          
-          # Keep original baseurl since GitHub Pages environments handle routing automatically
-          # Update tagline to "test" for preview validation
-          sed -i 's|tagline: Sharing knowledge, insights, and experiment with software development and technology.|tagline: test|' _config.preview.yml
-          
-          echo "Preview config created:"
-          cat _config.preview.yml | grep -E "(baseurl|tagline)"
-
-      - name: Build preview site
-        run: bundle exec jekyll b --config _config.preview.yml -d "_site${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: "production"
+          bundle exec jekyll build \
+            --baseurl "/pr-preview/pr-${{ github.event.number }}" \
+            --destination ./_site
 
       - name: Test preview site
         run: |
@@ -66,7 +55,7 @@ jobs:
       - name: Upload preview artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site${{ steps.pages.outputs.base_path }}"
+          path: "_site"
           name: "github-pages-preview-pr-${{ github.event.number }}"
 
   deploy-preview:
