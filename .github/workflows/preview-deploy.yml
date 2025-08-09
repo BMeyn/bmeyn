@@ -49,8 +49,10 @@ jobs:
 
       - name: Test preview site
         run: |
-          echo "Skipping HTML proofer for preview deployment as GitHub Pages environments handle baseurl differently"
           echo "Preview site built successfully with $(find _site -name "*.html" | wc -l) HTML files"
+          echo "Checking asset paths in generated HTML..."
+          grep -r "href=\"/blog/pr-preview/pr-${{ github.event.number }}/assets" _site/ || echo "Warning: Asset paths may not be correctly generated"
+
 
       - name: Upload preview artifact
         uses: actions/upload-pages-artifact@v3
@@ -78,30 +80,30 @@ jobs:
           script: |
             const prNumber = context.payload.number;
             const previewUrl = '${{ steps.deployment.outputs.page_url }}';
-            
+
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber,
             });
-            
-            const existingComment = comments.data.find(comment => 
-              comment.user.login === 'github-actions[bot]' && 
+
+            const existingComment = comments.data.find(comment =>
+              comment.user.login === 'github-actions[bot]' &&
               comment.body.includes('📖 Preview deployment')
             );
-            
+
             const commentBody = `## 📖 Preview deployment
-            
+
             ✅ Preview deployment is ready!
-            
+
             **📖 Preview URL:** ${previewUrl}
-            
+
             🔄 This preview will be updated automatically when you push new commits to this PR.
-            
+
             ---
             <sub>Deploy preview powered by GitHub Pages</sub>`;
-            
+
             if (existingComment) {
               // Update existing comment
               await github.rest.issues.updateComment({
