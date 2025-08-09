@@ -34,7 +34,7 @@ jobs:
       - name: Build preview site
         run: |
           # Build site with correct base URL for preview subdirectory
-          bundle exec jekyll build --destination "_site" --baseurl "/blog/preview/pr-${{ github.event.number }}"
+          bundle exec jekyll build --destination "_site" --baseurl "/preview/pr-${{ github.event.number }}"
         env:
           JEKYLL_ENV: "production"
 
@@ -52,7 +52,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.number;
-            const previewUrl = `https://${context.repo.owner.toLowerCase()}.github.io/blog/preview/pr-${prNumber}/`;
+            const previewUrl = `https://${context.repo.owner.toLowerCase()}.github.io/preview/pr-${prNumber}/`;
             
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
