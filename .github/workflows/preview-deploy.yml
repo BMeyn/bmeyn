@@ -44,7 +44,7 @@ jobs:
       - name: Build Jekyll site for preview deployment
         run: |
           bundle exec jekyll build \
-            --baseurl "" \
+            --baseurl "/blog-pr-${{ github.event.number }}" \
             --destination ./_site
 
       - name: Test preview site
@@ -63,8 +63,8 @@ jobs:
   deploy-preview:
     if: github.event.action != 'closed'
     environment:
-      name: preview
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: pr-preview-${{ github.event.number }}
+      url: https://bmeyn.github.io/blog-pr-${{ github.event.number }}
     runs-on: ubuntu-latest
     needs: build-preview
     steps:
@@ -79,7 +79,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.number;
-            const previewUrl = '${{ steps.deployment.outputs.page_url }}';
+            const previewUrl = 'https://bmeyn.github.io/blog-pr-${{ github.event.number }}';
 
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
