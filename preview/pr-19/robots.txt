@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: https://bmeyn.github.io/blog/preview/pr-19/sitemap.xml
+Sitemap: https://bmeyn.github.io/preview/pr-19/sitemap.xml
