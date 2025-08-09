@@ -46,7 +46,8 @@ jobs:
           # Create a copy of the config for preview with modified baseurl and tagline
           cp _config.yml _config.preview.yml
           
-          # Update baseurl for preview
+          # For GitHub Pages environment deployment, we need to use the baseurl that matches 
+          # where the site will be accessible after deployment to the preview subdirectory
           sed -i 's|baseurl: "/blog"|baseurl: "/blog/preview/pr-${{ github.event.number }}"|' _config.preview.yml
           
           # Update tagline to "test" for preview validation
@@ -56,7 +57,7 @@ jobs:
           cat _config.preview.yml | grep -E "(baseurl|tagline)"
 
       - name: Build preview site
-        run: bundle exec jekyll b --config _config.preview.yml
+        run: bundle exec jekyll b --config _config.preview.yml -d "_site${{ steps.pages.outputs.base_path }}/preview/pr-${{ github.event.number }}"
         env:
           JEKYLL_ENV: "production"
 
@@ -68,7 +69,7 @@ jobs:
       - name: Upload preview artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site"
+          path: "_site${{ steps.pages.outputs.base_path }}/preview/pr-${{ github.event.number }}"
 
   deploy-preview:
     if: github.event.action != 'closed'
@@ -87,7 +88,9 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.number;
-            const previewUrl = '${{ steps.deployment.outputs.page_url }}';
+            const baseUrl = '${{ steps.deployment.outputs.page_url }}';
+            // Construct the full preview URL by appending the preview path
+            const previewUrl = `${baseUrl}preview/pr-${prNumber}/`;
             
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
