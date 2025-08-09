@@ -44,7 +44,7 @@ jobs:
       - name: Build Jekyll site with PR-specific baseurl
         run: |
           bundle exec jekyll build \
-            --baseurl "/pr-preview/pr-${{ github.event.number }}" \
+            --baseurl "/blog/pr-preview/pr-${{ github.event.number }}" \
             --destination ./_site
 
       - name: Test preview site
