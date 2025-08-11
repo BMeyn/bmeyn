@@ -72,12 +72,24 @@ jobs:
               # Add file header
               echo "### 📄 \`$filename\`" >> "$temp_file"
               echo "" >> "$temp_file"
-              echo '```markdown' >> "$temp_file"
               
-              # Add file content
-              cat "$file" >> "$temp_file"
+              # Extract and display YAML front matter
+              if head -n 1 "$file" | grep -q "^---$"; then
+                echo "**Front Matter:**" >> "$temp_file"
+                echo '```yaml' >> "$temp_file"
+                sed -n '1,/^---$/p' "$file" | head -n -1 | tail -n +2 >> "$temp_file"
+                echo '```' >> "$temp_file"
+                echo "" >> "$temp_file"
+                echo "**Content:**" >> "$temp_file"
+                echo "" >> "$temp_file"
+                
+                # Add the markdown content (skip front matter)
+                sed '1,/^---$/d' "$file" | tail -n +2 >> "$temp_file"
+              else
+                # No front matter, just add the content
+                cat "$file" >> "$temp_file"
+              fi
               
-              echo '```' >> "$temp_file"
               echo "" >> "$temp_file"
               echo "---" >> "$temp_file"
               echo "" >> "$temp_file"
