@@ -8,7 +8,7 @@ pin: false
 
 Ever wondered what it feels like to have enterprise-grade data tools without the enterprise-grade price tag? Here's your chance to find out.
 
-Databricks Free Edition is basically the "try before you buy" version of one of the most powerful data platforms out there. Think of it as getting backstage access to the same tools that data teams at major companies use every day – except this backstage pass is completely free and designed specifically for learning the ropes.
+Databricks Free Edition is basically the "try before you buy" version of one of the most powerful data platforms out there. It's the same core technology that enterprise data teams rely on daily, but packaged as a no-cost learning environment where you can experiment and build your skills without any financial commitment.
 
 ## What exactly are you getting?
 
