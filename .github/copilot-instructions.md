@@ -256,14 +256,14 @@ git submodule status            # Submodule status
 # GitHub Copilot Technical Blog Writing Style Guide
 
 ## 1. Tone & Voice
-- **Conversational, but knowledgeable** – Imagine explaining the topic to a smart colleague over coffee.  
-- **Confident, not arrogant** – Show expertise through clarity, not jargon-dumping.  
-- **Authentically human** – Use occasional humor, personal observations, or light analogies.  
-- **Curious and helpful** – The goal is to make the reader *want* to explore further.  
+- **Professional and technical** – Write for developers and technical professionals who want depth and precision.  
+- **Confident and authoritative** – Demonstrate technical expertise through detailed insights and practical knowledge.  
+- **Direct and focused** – Prioritize technical accuracy and actionable information over entertainment.  
+- **Value-driven** – Every sentence should provide meaningful technical insight or practical guidance.  
 
 > **Example:**  
-> ❌ "The CPU usage metric is an important performance indicator."  
-> ✅ "If your CPU usage is spiking like it's had too much coffee, that's your signal something needs tuning."
+> ❌ "If your CPU usage is spiking like it's had too much coffee, that's your signal something needs tuning."  
+> ✅ "CPU usage above 80% sustained for more than 30 seconds typically indicates resource contention requiring immediate optimization."
 
 ---
 
@@ -276,53 +276,62 @@ git submodule status            # Submodule status
 ---
 
 ## 3. Word Choice
-- Prefer **clear over fancy** – "Check" instead of "ascertain," "set up" instead of "configure" unless precision demands otherwise.  
-- Sprinkle in **relatable metaphors** – Especially for abstract concepts.  
-- Avoid filler like "it should be noted that" or "as we have seen previously."  
+- Prefer **precise technical terms** over simplified alternatives when accuracy matters.  
+- Use **industry-standard terminology** that demonstrates technical competence.  
+- Avoid unnecessary filler phrases like "it should be noted that" or "as we have seen previously."  
+- Choose **specificity over generalization** – provide exact configurations, version numbers, and parameters where relevant.  
 
 ---
 
 ## 4. Structure of a Post
-1. **Hook (1–2 paragraphs)** – Start with a surprising fact, relatable scenario, or light joke to grab attention.  
-2. **Why It Matters** – Quickly explain why the reader should care.  
-3. **The Core Content** – Step-by-step guidance, clear code snippets, diagrams if needed.  
-4. **Mini-Stories or Side Notes** – Drop in short anecdotes or quick "pro tips" to keep it lively.  
-5. **Wrap-Up** – Summarize the takeaway and hint at what's next.  
+1. **Technical Introduction (1 paragraph)** – State the problem and technical solution clearly.  
+2. **Context and Value Proposition** – Explain why this technical insight matters in real-world scenarios.  
+3. **Core Technical Content** – In-depth technical guidance, code examples, configuration details, and implementation specifics.  
+4. **Practical Implementation** – Real-world application examples and best practices.  
+5. **Conclusion** – Key technical takeaways and next steps.  
+
+### Reading Time Guidelines
+- **Standard posts**: 4-8 minutes reading time (approximately 800-1600 words)
+- **Long-form posts**: Maximum 10 minutes reading time (approximately 2000 words) - only when explicitly specified as a comprehensive guide
+- **Focus on value density**: Every paragraph should provide actionable technical insight  
 
 ---
 
 ## 5. Code & Technical Content
-- Code snippets should be **formatted, tested, and minimal**—only what's needed to illustrate the point.  
-- Add **brief explanations** under each snippet so readers know *why* it works, not just *how*.  
-- Use inline comments for small jokes or personality when appropriate.  
+- Code snippets should be **production-ready, tested, and complete**—include all necessary context for implementation.  
+- Provide **technical explanations** that demonstrate deeper understanding of underlying systems and concepts.  
+- Include **configuration details, version requirements, and dependencies** to ensure reproducibility.  
+- Add **performance considerations and trade-offs** where relevant.  
 
 > **Example:**  
 > ```bash
-> az vm list --output table
-> # Because who wants to read JSON before their first coffee?
+> az vm list --output table --query "[?powerState=='VM running'].{Name:name,ResourceGroup:resourceGroup,Location:location,Size:hardwareProfile.vmSize}"
+> # Filters results to running VMs only and displays essential operational data
 > ```
 
 ---
 
 ## 6. Pacing & Flow
-- Break up heavy technical detail with occasional **reader-friendly interludes** (humor, metaphors, or rhetorical questions).  
-- Use **signposts** like "Here's the trick…" or "The catch is…" to guide attention.  
-- Imagine the reader is scrolling — give them reasons to *not* bounce away.  
+- Maintain **technical depth throughout** without unnecessary diversions or entertainment elements.  
+- Use **clear technical transitions** like "The key architectural consideration..." or "This approach provides..."  
+- Structure content for **quick scanning** by technical readers who want to extract specific information efficiently.  
+- **Eliminate filler content** – every section should provide concrete technical value.  
 
 ---
 
-## 7. Authenticity Checklist
-Before publishing, make sure the draft:  
-- Would make sense if read out loud.  
-- Has at least one analogy or story to make it memorable.  
-- Avoids AI "tells" like repetitive transitions, overly formal phrasing, or filler fluff.  
-- Sounds like *you* — tweak sentences so you could say them in conversation.  
+## 7. Technical Quality Checklist
+Before publishing, ensure the content:  
+- Demonstrates **deep technical understanding** through specific implementation details and architectural insights.  
+- Provides **actionable guidance** that readers can immediately apply in their technical work.  
+- Includes **complete technical context** (versions, dependencies, prerequisites, limitations).  
+- Avoids **unnecessary simplification** that diminishes technical value.  
+- Stays **within reading time guidelines** (4-8 minutes standard, max 10 minutes for comprehensive guides).  
 
 ---
 
-## 8. Example Style in Action
+## 8. Technical Writing in Action
 > **Instead of:**  
 > "Monitoring disk I/O is crucial for maintaining optimal VM performance."  
 >
 > **Write:**  
-> "If your VM's disk is chugging like an old hard drive from the '90s, it's time to check disk I/O. Trust me, slow storage can bottleneck everything."
+> "Monitor disk I/O using `iostat -x 1` to identify when average wait times exceed 10ms, indicating storage subsystem bottlenecks that require immediate investigation."
